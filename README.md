@@ -80,4 +80,29 @@ that facilitate embedded optimization and deployment. TF Lite is (currently) the
 clear winner in that regard.
 ```
 
+## Which Frameworks Work Best With Which Hardware and Why?
+#### Embedded Hardware
+1. Raspberry Pi
+	1. Caffe, PyTorch, and TensorFlow
+	2. Caffe, TensorFlow, and OpenCV’s DNN
+	
+```
+OpenVINO supports optimizing TensorFlow models along with Caffe, MXNet, and PyTorch
+(via ONNX). But in our experience, we have found out that the combinations of TensorFlow +
+OpenVINO and Caffe + OpenVINO work better than the other combinations. Thus, Tensor-
+Flow and Caffe are typically the best options.
+```
+	
+2. Intel Movidius Neural Compute Stick (NCS)
+	1. need to use OpenVINO
+	2. OpenVINO supports Caffe and TensorFlow models for deployment
+	
+3. Google Coral Edge Tensor Processing Unit (TPU) USB Accelerator
+	1. only supports TensorFlow Lite models as of the writing
+
+4. NVIDIA Jetson Nano
+	1. CUDA-capable NVIDIA
+	2. supports a variety of frameworks including Caffe, TensorFlow, and PyTorch
+	3. to take advantage of TensorRT for optimizing deep learning models for the Jetson
+Nano, we will stick with TensorFlow.
 
